@@ -19,3 +19,5 @@ dependencies:
     github: crystal-lang/crystal-db
   sqlite3:
     github: crystal-lang/crystal-sqlite3
+  jwt:
+    github: crystal-community/jwt
