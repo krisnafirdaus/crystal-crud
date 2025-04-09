@@ -1,0 +1,21 @@
+name: crystal-lang-crud
+version: 0.1.0
+
+authors:
+  - Krisna Firdaus <krisnafirdaus@gmail.com>
+
+targets:
+  crystal-lang-crud:
+    main: src/crystal-lang-crud.cr
+
+crystal: '>= 1.15.1'
+
+license: MIT
+
+dependencies:
+  kemal:
+    github: kemalcr/kemal
+  db:
+    github: crystal-lang/crystal-db
+  sqlite3:
+    github: crystal-lang/crystal-sqlite3

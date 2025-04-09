@@ -1,0 +1,35 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h1>Task Details</h1>
+  <div>
+    <a href="/tasks" class="btn btn-secondary me-2">Back to List</a>
+    <a href="/tasks/<%= task.id %>/edit" class="btn btn-warning">Edit</a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <div class="d-flex justify-content-between align-items-center">
+      <h5 class="mb-0 <%= task.completed ? "task-completed" : "" %>"><%= task.title %></h5>
+      <span class="badge <%= task.completed ? "bg-success" : "bg-warning" %>">
+        <%= task.completed ? "Completed" : "Pending" %>
+      </span>
+    </div>
+  </div>
+  <div class="card-body">
+    <% if task.description %>
+      <p class="card-text"><%= task.description %></p>
+    <% else %>
+      <p class="card-text text-muted">No description</p>
+    <% end %>
+  </div>
+  <div class="card-footer text-muted">
+    <small>Created at: <%= task.created_at.try &.to_s("%Y-%m-%d %H:%M") %></small>
+  </div>
+</div>
+
+<div class="mt-4">
+  <form action="/tasks/<%= task.id %>" method="POST" style="display: inline;">
+    <input type="hidden" name="_method" value="DELETE">
+    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this task?')">Delete</button>
+  </form>
+</div> 
